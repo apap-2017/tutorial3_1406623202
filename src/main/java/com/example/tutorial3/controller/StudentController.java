@@ -1,5 +1,6 @@
 package com.example.tutorial3.controller;
 
+import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,5 +24,19 @@ public class StudentController {
 		StudentModel student = new StudentModel(npm, name, gpa);
 		studentService.addStudent(student);
 		return "add";
+	}
+	
+	@RequestMapping("/student/view")
+	public String view(Model model, @RequestParam(value = "npm", required = true) String npm) {
+		StudentModel student = studentService.selectStudent(npm);
+		model.addAttribute("student", student);
+		return "view";
+	}
+	
+	@RequestMapping("/student/viewall")
+	public String viewAll(Model model) {
+		List<StudentModel> students = studentService.selectAllStudents();
+		model.addAttribute("students", students);
+		return "viewall";
 	}
 }

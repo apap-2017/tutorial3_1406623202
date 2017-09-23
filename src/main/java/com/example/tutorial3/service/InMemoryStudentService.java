@@ -9,7 +9,7 @@ public class InMemoryStudentService implements StudentService {
 	
 	@Override
 	public StudentModel selectStudent (String npm) {
-		//Implement
+		//Hasil implementasi
 		StudentModel student;
 		List<StudentModel> students = selectAllStudents();
 		

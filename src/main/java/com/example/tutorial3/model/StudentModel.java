@@ -1,8 +1,10 @@
 package com.example.tutorial3.model;
 
 public class StudentModel {
-	private String name;
-	private String npm;
+	public String name;
+	public String npm;
+	public double gpa;
+	
 	public String getNpm() {
 		return npm;
 	}
@@ -18,8 +20,6 @@ public class StudentModel {
 	public void setGpa(double gpa) {
 		this.gpa = gpa;
 	}
-
-	private double gpa;
 	
 	public StudentModel(String npm, String name, double gpa) {
 		this.setName(name);
