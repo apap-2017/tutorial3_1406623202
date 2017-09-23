@@ -3,6 +3,7 @@ package com.example.tutorial3.controller;
 import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.example.tutorial3.service.InMemoryStudentService;
@@ -31,6 +32,17 @@ public class StudentController {
 		StudentModel student = studentService.selectStudent(npm);
 		model.addAttribute("student", student);
 		return "view";
+	}
+	
+	@RequestMapping("/student/view/{npm}")
+	public String viewNPM(Model model, @PathVariable(value = "npm", required = true) String npm) {
+		StudentModel student = studentService.selectStudent(npm);
+		model.addAttribute("student", student);
+		if (student == null) {
+			return "not_found";
+		} else {
+			return "view";
+		}
 	}
 	
 	@RequestMapping("/student/viewall")
