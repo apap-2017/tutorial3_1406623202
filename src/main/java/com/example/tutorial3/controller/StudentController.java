@@ -52,9 +52,9 @@ public class StudentController {
 		return "viewall";
 	}
 	
-	@RequestMapping("/student/delete/{npm}")
-	public String deleteStudent(Model model, @PathVariable(value = "npm", required = true) String npm)  {
-		studentService.selectStudent(npm).remove();
-		return "viewall";
-	}
+//	@RequestMapping("/student/delete/{npm}")
+//	public String deleteStudent(Model model, @PathVariable(value = "npm", required = true) String npm)  {
+//		studentService.selectStudent(npm).remove();
+//		return "viewall";
+//	}
 }
